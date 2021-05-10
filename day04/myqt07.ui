@@ -17,8 +17,8 @@
    <widget class="QLineEdit" name="le1">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>10</y>
+      <x>80</x>
+      <y>40</y>
       <width>41</width>
       <height>20</height>
      </rect>
@@ -30,21 +30,21 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>10</y>
+      <x>30</x>
+      <y>40</y>
       <width>31</width>
       <height>20</height>
      </rect>
     </property>
     <property name="text">
-     <string>에셔ㅓ</string>
+     <string>me :</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="le2">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>10</y>
+      <x>80</x>
+      <y>70</y>
       <width>41</width>
       <height>20</height>
      </rect>
@@ -56,24 +56,50 @@
    <widget class="QPushButton" name="pb">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>10</y>
+      <x>20</x>
+      <y>140</y>
       <width>101</width>
       <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string>까지 짝수의 합은</string>
+     <string>결과보기</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="le3">
     <property name="geometry">
      <rect>
-      <x>280</x>
-      <y>10</y>
+      <x>80</x>
+      <y>100</y>
       <width>41</width>
       <height>20</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>70</y>
+      <width>41</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>com :</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>100</y>
+      <width>41</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>result :</string>
     </property>
    </widget>
   </widget>

@@ -17,8 +17,8 @@
    <widget class="QLineEdit" name="le1">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>10</y>
+      <x>60</x>
+      <y>40</y>
       <width>41</width>
       <height>20</height>
      </rect>
@@ -30,49 +30,36 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>10</y>
+      <x>30</x>
+      <y>40</y>
       <width>31</width>
       <height>20</height>
      </rect>
     </property>
     <property name="text">
-     <string>에셔ㅓ</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="le2">
-    <property name="geometry">
-     <rect>
-      <x>100</x>
-      <y>10</y>
-      <width>41</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
+     <string>단 :</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pb">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>10</y>
+      <x>20</x>
+      <y>90</y>
       <width>101</width>
-      <height>21</height>
+      <height>81</height>
      </rect>
     </property>
     <property name="text">
-     <string>까지 짝수의 합은</string>
+     <string>결과보기</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="le3">
+   <widget class="QTextBrowser" name="tb">
     <property name="geometry">
      <rect>
-      <x>280</x>
-      <y>10</y>
-      <width>41</width>
-      <height>20</height>
+      <x>140</x>
+      <y>20</y>
+      <width>256</width>
+      <height>192</height>
      </rect>
     </property>
    </widget>
