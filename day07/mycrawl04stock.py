@@ -1,42 +1,50 @@
-# 네이버 검색 API예제는 블로그를 비롯 전문자료까지 호출방법이 동일하므로 blog검색만 대표로 예제를 올렸습니다.
-# 네이버 검색 Open API 예제 - 블로그 검색
 import os
 import sys
 import urllib.request
-import pymysql
 from bs4 import BeautifulSoup
-import requests
+from _datetime import datetime
+import pymysql
+import time
 
-def insertChicken(tuts):
-    
-    conn = pymysql.connect(host='localhost', database='python', user='root', password='java', charset="utf8")
+#아래 문단을 아래쪽에 위치하면 안됨. 
+def insertStock(tuts):
+    conn = pymysql.connect(host='localhost', user='root', password='java',
+                           db='python', charset='utf8')
     
     curs = conn.cursor()
-    sql = "INSERT INTO STOCK (s_code, s_name, s_price, crawl_date) VALUES (%s, %s, %s, SYSDATE)"
+    sql = "INSERT INTO stock (s_code, s_name, s_price, crawl_date) VALUES (%s, %s, %s, %s)"
     cnt = curs.executemany(sql, tuts)
     
     conn.commit()
     conn.close()
     return cnt
 
-url = "https://vip.mk.co.kr/newSt/rate/item_all.php"
-request = urllib.request.Request(url)
-response = urllib.request.urlopen(request)
-rescode = response.getcode()
-if(rescode==200):
-    response_body = response.read()
+for i in range(10):
+    url = "https://vip.mk.co.kr/newSt/rate/item_all.php"
+    request = urllib.request.Request(url)
+    response = urllib.request.urlopen(request)
+    rescode = response.getcode()
+    if(rescode==200):
+        response_body = response.read()
+        html = response_body.decode('euc-kr')
+        soup = BeautifulSoup(html, 'html.parser')
+        
+        now = datetime.now()
+        crawl_date = now.strftime("%Y%m%d.%h%m")
+        tuts = []
+        
+        items = soup.select(".st2")
+        for i, item in enumerate(items):
+            s_code = item.a['title']
+            s_name = item.text
+            s_price = item.parent.select('td')[1].text.replace(",","")
+            
+            tuts.append((s_code, s_name, s_price, crawl_date))
+        
+        cnt = insertStock(tuts)
+        print("cnt", cnt)
     
-    html = response_body.decode('utf-8')
-    soup = BeautifulSoup(html, 'html.parser')
-    
-    items = soup.select("item")
-    for i,item in enumerate(items):
-        print(item.title.text)
-        print()
-        print(item.description.text)
-        print()
-        print()
-    
-    
-else:
-    print("Error Code:" + rescode)
+    else:
+        print("Error Code:" + rescode)    
+
+    time.sleep(60)
