@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h5>{{title}}</h5>
+{% for item in mylist %}
+<li>{{item}}</li>
+{% endfor %}
+
+{% for obj in objlist %}
+<li>{{obj.e_id}} {{obj.e_name}} {{obj.e_birth}}</li>
+{% endfor %}
+</body>
+</html>
