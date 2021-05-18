@@ -19,7 +19,7 @@ class DaoEmp:
     
     def myinsert(self,e_id,e_name,birth):
         curs = self.conn.cursor()
-        sql = "INSERT INTO emp (e_id,e_name,birth) VALUES ({},{},{})".format(e_id,e_name,birth)
+        sql = "INSERT INTO emp (e_id,e_name,birth) VALUES ('{}','{}','{}')".format(e_id,e_name,birth)
         cnt = curs.execute(sql)
         self.conn.commit()
         return cnt    
