@@ -25,12 +25,13 @@ class DaoExam:
         self.conn.commit()
         return cnt
     
-    def myExamupdate(self,e_id,e_name,birth):        
+    def myExamupdate(self,e_id, kor, eng, math):        
         sql = f"""
-            UPDATE emp 
+            UPDATE eaxm
             SET 
-            e_name = '{e_name}',
-            birth = '{birth}'
+            kor = '{kor}',
+            eng = '{eng}',
+            math = '{math}'
             WHERE
             e_id = '{e_id}'
         """
@@ -41,7 +42,7 @@ class DaoExam:
     
     def myExamdelete(self,e_id):
         curs = self.conn.cursor()
-        sql = f"delete from emp where e_id='{e_id}'"
+        sql = f"delete from exam where e_id='{e_id}'"
         cnt = curs.execute(sql)
         self.conn.commit()
         return cnt
