@@ -17,31 +17,42 @@ class WindowClass(QMainWindow, form_class):
         self.flag_ing = True
         self.flag_wb = True
         self.arr2D = [
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0]
+                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0],
+                                                   
+                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0],
+                                                        
+                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0],
+                                                        
+                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0]
+               
 
             ]
+        #컴퓨터가 놓는 자리 
+        self.arr_seq = [
+            {'i':0, 'j':0},
+            {'i':0, 'j':1},
+            {'i':0, 'j':2},
+            {'i':0, 'j':3},
+            {'i':0, 'j':4}
+        ]
+        self.arr_idx = 0
+
         self.pb2D = []
         
         
@@ -63,6 +74,7 @@ class WindowClass(QMainWindow, form_class):
     def myreset(self):
         self.flag_wb = True
         self.flag_ing = True
+        self.arr_idx = 0
         
         for i in range(20):
             for j in range(20):
@@ -70,8 +82,8 @@ class WindowClass(QMainWindow, form_class):
         self.myrender()
          
     def myrender(self): 
-        for i in range(19):
-            for j in range(19):
+        for i in range(20):
+            for j in range(20):
                 if self.arr2D[i][j] == 0 :
                     self.pb2D[i][j].setIcon(QtGui.QIcon('0.png'))
                 if self.arr2D[i][j] == 1 :
@@ -92,13 +104,8 @@ class WindowClass(QMainWindow, form_class):
         if self.arr2D[i][j] > 0:
             return
         
-        stone = 0
-        if self.flag_wb:
-            self.arr2D[i][j] = 1
-            stone = 1
-        else :
-            self.arr2D[i][j] = 2 
-            stone = 2
+        stone = 1
+        self.arr2D[i][j] = 1
             
         up = self.getUP(i,j,stone)   
         dw = self.getDW(i,j,stone)    
@@ -118,23 +125,41 @@ class WindowClass(QMainWindow, form_class):
         self.myrender()
         
         if d1==5 or d2 == 5 or d3 == 5 or d4 == 5 :
+            QMessageBox.about(self, "오목", "흑돌 승리!")
             self.flag_ing = False
-            if self.flag_wb :
-                QMessageBox.about(self, "오목", "흑돌 승리!")
-            else :
-                QMessageBox.about(self, "오목", "백돌 승리!")
-                
-#        print("up",up)
-#       print("dw",dw)
-#       print("le",le)
-#       print("ri",ri)
-#
-#       print("ur",ur)
-#       print("dl",dl)
-#       print("ul",ul)
-#       print("dr",dr)
+            return
+            
+        self.flag_wb = not self.flag_wb
         
+
+        com_i = self.arr_seq[self.arr_idx]['i']
+        com_j = self.arr_seq[self.arr_idx]['j']
         
+        stone = 2
+        self.arr2D[com_i][com_j] = 2
+        self.arr_idx+=1
+            
+        up = self.getUP(com_i,com_j,stone)   
+        dw = self.getDW(com_i,com_j,stone)    
+        le = self.getLE(com_i,com_j,stone)    
+        ri = self.getRI(com_i,com_j,stone)
+                    
+        ur = self.getUR(com_i,com_j,stone)    
+        dl = self.getDL(com_i,com_j,stone)    
+        ul = self.getUL(com_i,com_j,stone)    
+        dr = self.getDR(com_i,com_j,stone)    
+        
+        d1 = up+1+dw
+        d2 = le+1+ri
+        d3 = ur+1+dl
+        d4 = ul+1+dr
+        
+        self.myrender()
+        
+        if d1==5 or d2 == 5 or d3 == 5 or d4 == 5 :
+            QMessageBox.about(self, "오목", "백돌 승리!")
+            self.flag_ing = False
+                        
         self.flag_wb = not self.flag_wb
         
     def getUP(self,i,j,stone): 
