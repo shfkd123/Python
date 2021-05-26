@@ -3,6 +3,7 @@ from keras.datasets import mnist
 from keras import models
 from keras import layers
 from keras.utils.np_utils import to_categorical
+import tensorflow as tf
 
 
 # MNIST 데이터셋 불러오기

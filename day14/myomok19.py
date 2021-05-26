@@ -1,4 +1,7 @@
 import sys
+import numpy as np
+from tensorflow.keras.models import load_model
+model = load_model('models/20201213_202430.h5')
 from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow
 from PyQt5 import uic, QtGui
 from PyQt5.Qt import QPushButton, QSize, QRect, QMessageBox
@@ -8,6 +11,32 @@ from astropy.time.utils import split
 
 form_class = uic.loadUiType("myomok01.ui")[0]
 
+def getComIJ(arr2D):
+        input = np.zeros((20,20))
+        for i in range(20):
+            for j in range(20):
+                if arr2D[i][j] == 1 :
+                    input[i][j] = 1
+                if arr2D[i][j] == 2 :
+                    input[i][j] = -1
+            
+        input = input.reshape((1,20,20,1))
+        
+        #print(input.shape)
+        #print(input)
+        
+        output = model.predict(input).squeeze()
+        output = output.reshape((20, 20))
+        for i in range(20):
+            for j in range(20):
+                if arr2D[i][j] > 0 : #돌이 벌써 놓아진 상황
+                    output[i][j] = 0
+                    
+        print(output)
+        print(output.shape)
+        i, j = np.unravel_index(np.argmax(output), output.shape)
+        return i, j
+        #print(i,j)
 
 class WindowClass(QMainWindow, form_class):
         
@@ -90,6 +119,7 @@ class WindowClass(QMainWindow, form_class):
                     self.pb2D[i][j].setIcon(QtGui.QIcon('1.png'))
                 if self.arr2D[i][j] == 2 :
                     self.pb2D[i][j].setIcon(QtGui.QIcon('2.png'))
+    
                     
     def btnClick(self):
         if not self.flag_ing :
@@ -132,8 +162,11 @@ class WindowClass(QMainWindow, form_class):
         self.flag_wb = not self.flag_wb
         
 
-        com_i = self.arr_seq[self.arr_idx]['i']
-        com_j = self.arr_seq[self.arr_idx]['j']
+        #com_i = self.arr_seq[self.arr_idx]['i']
+        #com_j = self.arr_seq[self.arr_idx]['j']
+        
+        com_i,com_j = getComIJ(self.arr2D)
+        print(com_i, com_j)
         
         stone = 2
         self.arr2D[com_i][com_j] = 2
